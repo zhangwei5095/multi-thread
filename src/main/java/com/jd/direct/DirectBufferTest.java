@@ -2,6 +2,10 @@ package com.jd.direct;
 
 import java.nio.ByteBuffer;
 
+/**
+ * 堆外内存溢出测试
+ * -Xmx32m -XX:MaxDirectMemorySize=10m -verbose:gc  -XX:+PrintGCDetails -XX:+PrintGCTimeStamps
+ */
 public class DirectBufferTest {
     private static int NUM_THREADS = 20;
 
