@@ -12,10 +12,18 @@ public class DirectBufferTest {
                     int i = 0;
                     try {
                         while(true) {
-                            ByteBuffer bb = ByteBuffer.allocateDirect(1024 * 1024);
-                            //ByteBuffer bb = ByteBuffer.allocate(2014*1024);
-                            i++;
-                            System.gc();
+                           // synchronized (DirectBufferTest.class) {
+                                ByteBuffer bb = ByteBuffer.allocateDirect(1024 * 1024);
+                                //ByteBuffer bb = ByteBuffer.allocate(2014*1024);
+                                i++;
+                            try {
+                                Thread.sleep(100);
+                            } catch (InterruptedException x) {
+                                // Restore interrupt status
+                                Thread.currentThread().interrupt();
+                            }
+                                //System.gc();
+                           // }
                         }
                     } catch(Throwable t) {
                         System.err.println("Thread " + Thread.currentThread().getName() + " got an OOM on iteration " + i);
