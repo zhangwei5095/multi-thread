@@ -3,7 +3,7 @@ package com.jd.direct;
 import java.nio.ByteBuffer;
 
 public class DirectBufferTest {
-    private static int NUM_THREADS = 2;
+    private static int NUM_THREADS = 20;
 
     public static void main(String[] args) throws InterruptedException {
         for(int i = 0; i < NUM_THREADS; i++) {
@@ -16,6 +16,7 @@ public class DirectBufferTest {
                                 ByteBuffer bb = ByteBuffer.allocateDirect(1024 * 1024);
                                 //ByteBuffer bb = ByteBuffer.allocate(2014*1024);
                                 i++;
+                            //加上线程休眠时间后，内存溢出问题消失
                             try {
                                 Thread.sleep(100);
                             } catch (InterruptedException x) {
