@@ -7,7 +7,7 @@ import java.nio.ByteBuffer;
  * -Xmx32m -XX:MaxDirectMemorySize=10m -verbose:gc  -XX:+PrintGCDetails -XX:+PrintGCTimeStamps
  */
 public class DirectBufferTest {
-    private static int NUM_THREADS = 20;
+    private static int NUM_THREADS = 2;
 
     public static void main(String[] args) throws InterruptedException {
         for(int i = 0; i < NUM_THREADS; i++) {

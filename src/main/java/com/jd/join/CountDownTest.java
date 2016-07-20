@@ -28,6 +28,6 @@ public class CountDownTest {
         System.out.println(Thread.currentThread().getName()+" count "+3);
         latch.countDown();
         latch.await(1,TimeUnit.SECONDS);
-        System.out.println(Thread.currentThread().getName()+" 执行完成 ");
+        System.out.println(Thread.currentThread().getName()+" 执行完成 "+Runtime.getRuntime().availableProcessors());
     }
 }
